@@ -1,0 +1,10 @@
+{
+  "name": "soreung-soreung.github.io",
+  "version": "1.0.0",
+  "description": "soreung-soreung blog",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "soreung-soreung",
+  "license": "ISC"
+}
