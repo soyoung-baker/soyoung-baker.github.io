@@ -19,4 +19,13 @@ module.exports = {
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   plugins: ['@trivago/prettier-plugin-sort-imports'],
-};
+  overrides: [
+    {
+      files: '*.json',
+      options: {
+        parser: 'json',
+        semi: false,
+      },
+    },
+  ],
+}
