@@ -1,3 +1,5 @@
+import PostList from '@/components/home/PostList'
+
 export default function Home() {
-  return <section>hello</section>
+  return <PostList />
 }
