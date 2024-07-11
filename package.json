@@ -13,6 +13,7 @@
   "author": "soyoung-baker",
   "license": "ISC",
   "dependencies": {
+    "glob": "^11.0.0",
     "next": "^14.2.5",
     "pnpm": "^9.5.0",
     "react": "^18.3.1",
