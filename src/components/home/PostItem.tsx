@@ -11,7 +11,7 @@ export default function PostItem({ post: { title, description, date, path } }: P
     <Link href={`/posts/${path}`}>
       <article>
         <h3 className="text-xl font-semibold">{title}</h3>
-        <time className="mt-1 text-sm text-zinc-400">{date.toString()}</time>
+        <time className="mt-1 text-sm text-zinc-400">{date}</time>
         <p className="mt-4 line-clamp-3 text-zinc-700">{description}</p>
       </article>
     </Link>

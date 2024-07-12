@@ -5,8 +5,8 @@ import path from 'path'
 export type Post = {
   title: string
   description: string
-  date: Date
-  category: string
+  date: string
+  category?: string
   path: string
 }
 
