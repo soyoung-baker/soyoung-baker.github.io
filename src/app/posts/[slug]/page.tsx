@@ -15,11 +15,10 @@ export default async function PostPage({ params: { slug } }: Props) {
   const { title, content, date, category } = await getPostData(slug)
 
   return (
-    <article>
-      <section>
-        <time>{date.toString()}</time>
-        <h1>{title}</h1>
-        <div>{category}</div>
+    <article className="mt-16">
+      <time className="text-zinc-400">{date.toString()}</time>
+      {category && <div>{category}</div>}
+      <section className="mt-4 pb-20">
         <MarkdownViewer content={content} />
       </section>
     </article>

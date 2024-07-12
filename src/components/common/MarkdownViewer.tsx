@@ -2,9 +2,12 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
+import { Nanum_Myeongjo } from 'next/font/google'
 import Image from 'next/image'
 
 import remarkGfm from 'remark-gfm'
+
+const nanum = Nanum_Myeongjo({ subsets: ['latin'], weight: '700' })
 
 type ImageProps = {
   src?: string
@@ -16,7 +19,7 @@ function getImage({ src, alt }: ImageProps) {
 
   return (
     <Image
-      className="w-full max-h-60 object-cover"
+      className="w-full h-auto object-cover"
       src={imagePath}
       alt={alt || ''}
       width={1440}
@@ -37,6 +40,11 @@ export default function MarkdownViewer({ content }: Props) {
       rehypePlugins={[remarkGfm]}
       components={{
         img: getImage,
+        a: (a) => (
+          <a href={a.href} className={nanum.className}>
+            {a.children}
+          </a>
+        ),
         code(props) {
           const { ref, children, className, node, ...rest } = props
           const match = /language-(\w+)/.exec(className || '')
@@ -45,7 +53,10 @@ export default function MarkdownViewer({ content }: Props) {
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
-            <code {...rest} className={className}>
+            <code
+              {...rest}
+              className={`${className} ${'bg-zinc-100 p-1 rounded-md font-light text-zinc-600'}`}
+            >
               {children}
             </code>
           )
