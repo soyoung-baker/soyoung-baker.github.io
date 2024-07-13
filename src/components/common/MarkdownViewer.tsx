@@ -55,7 +55,7 @@ export default function MarkdownViewer({ content }: Props) {
           ) : (
             <code
               {...rest}
-              className={`${className} ${'bg-zinc-100 p-1 rounded-md font-light text-zinc-600'}`}
+              className={`${className} ${'bg-zinc-100 p-1 rounded-md font-normal text-zinc-600 after:content-[""] before:content-[""]'}`}
             >
               {children}
             </code>
