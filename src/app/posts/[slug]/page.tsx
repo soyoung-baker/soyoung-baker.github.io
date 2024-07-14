@@ -1,9 +1,8 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 import MarkdownViewer from '@/components/common/MarkdownViewer'
 import { getPostData } from '@/service/posts'
-
-import image from '../../../../data/posts/blog/2024/2024-01/syntax-error.png'
 
 type Props = {
   params: {
@@ -11,8 +10,17 @@ type Props = {
   }
 }
 
+export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+  const { title } = await getPostData(slug)
+
+  return {
+    title,
+    description: `${title}에 관한 공부한 내용을 적은 포스트입니다.`,
+  }
+}
+
 export default async function PostPage({ params: { slug } }: Props) {
-  const { title, content, date, category } = await getPostData(slug)
+  const { content, date, category } = await getPostData(slug)
 
   return (
     <article className="mt-16">
