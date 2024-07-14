@@ -9,6 +9,17 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const metadata = {
+  title: {
+    default: 'Better code coffee 블로그',
+    template: '%s | Better code coffee 블로그',
+  },
+  description: '더 좋은 코드를 위해 고민하거나 공부했던 내용을 올리는 블로그입니다.',
+  icons: {
+    icon: '/images/icons/favicons/favicon.ico',
+  },
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={inter.className}>
