@@ -16,7 +16,7 @@ export default function Header() {
           A blog by someone who strives for and enjoys writing better code and loves coffee
         </p>
       </Link>
-      <div className="absolute top-11 right-8 flex items-center gap-3">
+      <div className="absolute top-11 right-8 flex items-center gap-3 max-md:hidden">
         <a href="https://github.com/soyoung-baker">
           <Image src={IconGitHub} alt="GitHub logo" />
         </a>
