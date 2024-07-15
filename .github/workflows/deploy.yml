@@ -22,7 +22,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           pnpm install
-          pnpm build
+          pnpm build && touch ./out/.nojekyll 
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
