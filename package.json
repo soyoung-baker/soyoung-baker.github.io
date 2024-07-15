@@ -15,6 +15,7 @@
   "author": "soyoung-baker",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "glob": "^11.0.0",
     "next": "^14.2.5",
     "pnpm": "^9.5.0",
