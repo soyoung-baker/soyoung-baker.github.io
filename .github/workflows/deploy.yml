@@ -21,6 +21,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          echo "NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }}" >> .env.production.local
           pnpm install
           pnpm build && touch ./out/.nojekyll 
 

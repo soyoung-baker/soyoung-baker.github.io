@@ -3,8 +3,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import { Nanum_Myeongjo } from 'next/font/google'
-import Image from 'next/image'
 
+import { assetPrefixPath } from '@/utils/url'
 import remarkGfm from 'remark-gfm'
 
 const nanum = Nanum_Myeongjo({ subsets: ['latin'], weight: '700' })
@@ -17,10 +17,11 @@ type ImageProps = {
 function getImage({ src, alt }: ImageProps) {
   const imagePath = src ? src.replace('/public', '') : ''
 
+  // TODO: next/image 로 변경해야함
   return (
-    <Image
+    <img
       className="w-full h-auto object-cover"
-      src={imagePath}
+      src={assetPrefixPath(imagePath)}
       alt={alt || ''}
       width={1440}
       height={1200}
