@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
+import { GA_TRACKING_ID } from '@/utils/env'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import './globals.css'
 
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="grow max-lg:px-3">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={GA_TRACKING_ID as string} />
     </html>
   )
 }

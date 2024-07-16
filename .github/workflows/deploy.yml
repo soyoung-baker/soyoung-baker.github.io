@@ -22,6 +22,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           echo "NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }}" >> .env.production.local
+          echo "NEXT_PUBLIC_GA_ID=${{ secrets.NEXT_PUBLIC_GA_ID }}" >> .env.production.local
           pnpm install
           pnpm build && touch ./out/.nojekyll 
 
