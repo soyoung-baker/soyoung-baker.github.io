@@ -58,5 +58,11 @@
     "description": "PR을 올린 후 GitHub Actions가 실패하는 문제가 발생했다. 로그를 확인해보니 install pnpm 단계에서 에러가 발생한 것이었다. 내용은 아래와 같은데 어제까지 잘 작동하던 액션이 갑자기 에러를 발생시키니, 특별한 설정 변경이 없었음에도 원인을 찾기 위해 구글링을 시작했다. 똑같은 증상으로 issue 를 올린 글을 확인했다. 문제의 원인은 pnpm/action-setup 이슈에서 동일한 증상을 겪고 있는 사람들의 글을 통해 확인할 수 있었다. 해결책은 checkout 액션을 최신 버전인 v4로 업그레이드하는 것이었다. 실제로 버전을 올린 후 문제가 해결되었다. 왜 이런 문제가 발생했는지 알아보았다. GitHub Actions와 Node.js 버전 전환 작년부터 올해 GitHub Actions는 Node.js 20으로 전환하는 과정을 진행 중이었다. [GitHub Actions: Transitioning from Node 16 to Node 20](https://github.blog/changelog/2023-09-22-github-actions-transitioning-from-node-16-to-node-20/) 이러한 GitHub Actions 의 소식으로 pnpm/action-setup 에서는 아래와 같은 대화가 있었다. [node20 support](https://github.com/pnpm/action-setup/issues/99#issuecomment-1737700746) 그리고 2024년 5월 17일에 [Updated dates for Actions runner using Node20 instead of Node16 by default](https://github.blog/changelog/2024-05-17-updated-dates-for-actions-runner-using-node20-instead-of-node16-by-default/) 업데이트 글이 올라왔다. 따라서 Node.js 16으로 실행되던 pnpm/action-s",
     "date": "2024-07-04",
     "path": "2024-07-04-pnpm-action-node-version"
+  },
+  {
+    "title": "Yarn berry PnP 와 VSCode SDKs",
+    "description": "Yarn의 PnP로 개발하면서 React 관련 라이브러리들을 모두 설치했음에도 아래와 같은 에러가 계속 발생했다. 또한 다른 모듈들도 불러올 수 없는 문제가 생겼다. 관련 모듈을 잘못 설치했다고 생각해서 모두 삭제하고 다시 설치한 후 VSCode를 다시 켜봤지만 소용이 없었다. 에러 설명을 그대로 복사해서 검색해보니 아래와 같은 스택오버플로우 글을 발견했다. [JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.ts(7026)](https://stackoverflow.com/questions/76090683/jsx-element-implicitly-has-type-any-because-no-interface-jsx-intrinsicelement) 그 중 이런 답변이 있었다. > The new Yarn PnP paradigm will install modules in a different folder and thus @types/react and @types/react-dom will not be found by tsserver. > To fix this without reverting to node\\_modules, you have to install Yarn Editor SDKs which are meant to resolve this problem for specific editors (currently Vim and VSCode). > If your editor is not listed, then install the base SDK and manually configure your editor's tsserver to run from .Yarn/sdks/typescript/bin/tsserver. 즉, Yarn PnP는 모듈을 다른 폴더에 설치하기 때문에 `@types/react`와 `@types/react-dom`이 tsserver에서 발견되지",
+    "date": "2024-07-18",
+    "path": "2024-07-18-yarn-berry-vscode"
   }
 ]
